@@ -43,7 +43,7 @@ Next, the data is split into two parts with a ratio of 7:3. 70% of the dataset i
 
 Two-Class Logistic Regression is selected as the machine learning algorithm to be used as this is a classification problem of predicting death or survival. All the features in the training portion of the dataset (not including DEATH\_EVENT as it is the label) are used to train the model. The Score Model and the Evaluate Model modules are then added to evaluate the performance of the model. See the picture below for the full training pipeline. The performance of the model is discussed in RESULT.md.
 
-![](RackMultipart20210805-4-15nmv5w_html_f435cd6b3497bc72.png)
+![](https://github.com/audicar/MSA_AI_Heart_Failure_Death_Prediction/images/training_pipeline.png)
 
 Training Pipeline
 
@@ -158,86 +158,11 @@ For scalability, if the client has one or more files of input patient data, thes
 
 <h3>References</h3>
 
-[1] Australian Bureau of Statistics 2018
+**[1]** Australian Bureau of Statistics 2018
 
-[2] National Health Survey 2017-18
+**[2]** National Health Survey 2017-18
 
-[3] Chicco, D., &amp; Jurman, G. (2020). Machine learning can predict survival of patients with heart failure from serum creatinine and ejection fraction alone. _BMC medical informatics and decision making_, _20_(1), 1-16.
+**[3]** Chicco, D., &amp; Jurman, G. (2020). Machine learning can predict survival of patients with heart failure from serum creatinine and ejection fraction alone. _BMC medical informatics and decision making_, _20_(1), 1-16.
 
-RESULT.md
 
-**Results**
 
-The training model&#39;s accuracy is 0.833 which is fairly high. Its precision is 0.731, recall 0.704, F1 0.717 and AUC 0.832. These figures indicate that the model does help with the prediction of death by heart failure. With data from less than 300 patients being used the build the model, its performance is already moderately high. With even more patients using this classifier, their data could help to strengthen the model to perform even better.
-
-To improve the performance of the model even further, additional research for important factors for heart failure could be undertaken. This may add additional features and/or decrease less important ones. Moreover, evaluation techniques such as k-fold cross-validation could be employed instead of splitting the dataset 7:3. Furthermore, it would be interesting to view how the results may change if the dataset contains those without heart failure.
-
-To improve scalability, the data preprocessing stage could be modified to accommodate for imperfect datasets such as null value cases. A more user-friendly interface could be implemented such that the client would not have to write any Python code and instead, upload their files and maybe click one button. It would also help to have a user ID column in the dataset in cases where the client would like to classify a large set of data. This would make it more convenient to figure out which results belong to which patients.
-
-![](RackMultipart20210805-4-15nmv5w_html_fa06ac46610e9e90.png) ![](RackMultipart20210805-4-15nmv5w_html_66e8faeb06e22e05.png)
-
-![](RackMultipart20210805-4-15nmv5w_html_7b694fa4ebc71098.png) ![](RackMultipart20210805-4-15nmv5w_html_bacece8f8f979b1a.png) ![](RackMultipart20210805-4-15nmv5w_html_406d870d4b3bde25.png)
-
-LEARNING\_SUMMARY.md
-
-For MSLearn Journey, I have chosen the coding approach for the learning path (despite having done low code in the project. The Q&amp;A session clarified that this is acceptable).
-
-Automated ML in Azure ML: chooses best model for you
-
-Azure ML can be used for regression, classification and clustering. The techniques differ by selecting different modules. Eg classification can use 2-class linear regression.
-
-The ML lifecycle:
-
-- Train model
-- Package model
-- Validate model
-- Deploy model
-- Monitor model
-- Retrain model
-
-Benefit of ML pipeline: independent steps allow multiple people to work on the same pipeline concurrently
-
-Recommended approach for monitoring ML models: combo of automatic &amp; manual spot checks
-
-Model registry = central place to save every version of every model
-
-Reasons for inaccurate predictions could include:
-
-- Inadequate training
-- Issues with the live data that the model evaluates
-- Model drifts over time
-- World changes
-
-Azure notebooks:
-
-- Can be integrated with Azure Machine Learning, Azure compute source
-- Azure Notebooks Website has sample notebooks eg Discover Sentiments in Tweets (sentiment analysis on tweets), Intorduction to Cognitive Toolkit (notebooks showing how to use Microsoft Cognitive Toolkit)
-- Import data using curl
-- Pandas for cleaning and preparing data
-- Scikit-learn to build ML model
-- Matplotlib to visualize results
-
-Keras = API wrapper on top of DL libraries eg TensorFlow &amp; MS Cognitive Toolkit
-
-- Model.summary() = produces summary of layers for compiled model
-- (x\_train, y\_train),(x\_test,y\_test) = load\_data(…) where x\_train and y\_train are the values of features, and x\_test and y\_test are the label values
-
-Benefits of OOP:
-
-- Data encapsulation
-- Simplicity
-- Easy to modify
-- Maintainability
-- Reusability
-
-Encapsulation:
-
-- Protect data
-- Don&#39;t and should not need to know the internals
-
-Flask = framework for building web apps in Python
-
-- 5000 default port number
-- Jinja template files stored in templates subdirectory by default
-- Core: app.py
-- Code calls Flask funcs eg render\_template()
