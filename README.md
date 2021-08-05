@@ -65,21 +65,21 @@ In order for the solution to be used by a client, they may follow the following 
 
 Code:
 
-endpoint = &#39;http://9a351d82-3e2d-4879-a09a-453e31578f77.australiaeast.azurecontainer.io/score&#39; #Replace with endpoint
+    endpoint = 'http://9a351d82-3e2d-4879-a09a-453e31578f77.australiaeast.azurecontainer.io/score' #Replace with endpoint
 
-key = &#39;EN0sO1vLAGsxMlcLLWYlegOWWfEAyvA8&#39; #Replace with key
+    key = 'EN0sO1vLAGsxMlcLLWYlegOWWfEAyvA8' #Replace with key
 
-import urllib.request
+    import urllib.request
 
-import json
+    import json
 
-import os
+    import os
 
-data = {
+    data = {
 
-    &quot;Inputs&quot;: {
+      "Inputs": {
 
-        &quot;WebServiceInput0&quot;:
+        "WebServiceInput0":
 
         [
 
