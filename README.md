@@ -85,71 +85,70 @@ Code:
 
             {
 
-                    &#39;age&#39;: 77,
+                    'age': 77,
 
-                    &#39;anaemia&#39;: 1,
+                    'anaemia': 1,
 
-                    &#39;creatinine\_phosphokinase&#39;: 342,
+                    'creatinine_phosphokinase': 342,
 
-                    &#39;diabetes&#39;: 1,
+                    ';diabetes': 1,
 
-                    &#39;ejection\_fraction&#39;: 20,
+                    'ejection_fraction': 20,
 
-                    &#39;high\_blood\_pressure&#39;: 1,
+                    'high_blood_pressure': 1,
 
-                    &#39;platelets&#39;: 212000,
+                    'platelets': 212000,
 
-                    &#39;serum\_creatinine&#39;: 1.1,
+                    'serum_creatinine': 1.1,
 
-                    &#39;serum\_sodium&#39;: 125,
+                    'serum_sodium': 125,
 
-                    &#39;sex&#39;: 1,
+                    'sex': 1,
 
-                    &#39;smoking&#39;: 0,
+                    'smoking': 0,
 
-                    &#39;time&#39;: 21,
+                    'time': 21,
 
             },
 
         ],
 
-    },
+      },
 
-    &quot;GlobalParameters&quot;:  {
+      GlobalParameters:  {
+      }
 
     }
 
-}
+    body = str.encode(json.dumps(data))
 
-body = str.encode(json.dumps(data))
+    headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ key)}
 
-headers = {&#39;Content-Type&#39;:&#39;application/json&#39;, &#39;Authorization&#39;:(&#39;Bearer &#39;+ key)}
+    req = urllib.request.Request(endpoint, body, headers)
 
-req = urllib.request.Request(endpoint, body, headers)
+    try:
 
-try:
+        response = urllib.request.urlopen(req)
 
-    response = urllib.request.urlopen(req)
+        result = response.read()
 
-    result = response.read()
+        json_result = json.loads(result)
 
-    json\_result = json.loads(result)
+        output = json_result['Results']['WebServiceOutput0'][0]
 
-    output = json\_result[&quot;Results&quot;][&quot;WebServiceOutput0&quot;][0]
+        print('Prediction: {}\nProbability: {:.2f}'.format(output['HeartFailurePrediction'],
 
-    print(&#39;Prediction: {}\nProbability: {:.2f}&#39;.format(output[&quot;HeartFailurePrediction&quot;],
+                                                            output['Probability']))
 
-                                                            output[&quot;Probability&quot;]))
+    except urllib.error.HTTPError as error:
 
-except urllib.error.HTTPError as error:
+        print('The request failed with status code: ' + str(error.code))
 
-    print(&quot;The request failed with status code: &quot; + str(error.code))
+        # Print the headers to help debug
 
-    # Print the headers to help debug
+        print(error.info())
 
-    print(error.info())
-
-    print(json.loads(error.read().decode(&quot;utf8&quot;, &#39;ignore&#39;)))
+        print(json.loads(error.read().decode('utf8&quot;, 'ignore')))
 
 - Inside of WebServiceInput0, insert the data the client would like to classify. In the code, synthetic information has already been entered for a patient.
 - Hit the double-arrow button to run the code
