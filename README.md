@@ -43,7 +43,7 @@ Next, the data is split into two parts with a ratio of 7:3. 70% of the dataset i
 
 Two-Class Logistic Regression is selected as the machine learning algorithm to be used as this is a classification problem of predicting death or survival. All the features in the training portion of the dataset (not including DEATH\_EVENT as it is the label) are used to train the model. The Score Model and the Evaluate Model modules are then added to evaluate the performance of the model. See the picture below for the full training pipeline. The performance of the model is discussed in RESULT.md.
 
-| ![alt text](https://github.com/audicar/MSA_AI_Heart_Failure_Death_Prediction/blob/main/images/training_pipeline.png) |
+| ![](https://github.com/audicar/MSA_AI_Heart_Failure_Death_Prediction/blob/main/images/training_pipeline.png) |
 |:--:|
 | *Training Pipeline* |
 
@@ -53,9 +53,9 @@ The training pipeline is deployed to produce the following inference pipeline (s
 
 The Execute Python Script is added to define what will be the output for the users. The Web Service Output is then used to deliver the outcome.
 
-![](RackMultipart20210805-4-15nmv5w_html_ae3b517e95f595e7.png)
-
-Inference Pipeline
+| ![](https://github.com/audicar/MSA_AI_Heart_Failure_Death_Prediction/blob/main/images/inference_pipeline.png) |
+|:--:|
+| *Inference Pipeline* |
 
 In order for the solution to be used by a client, they may follow the following instructions:
 
