@@ -1,16 +1,16 @@
 # MSA AI Project: Heart Failure Death Prediction
 
-<h3>**Introduction**</h3>
+<h3>Introduction</h3>
 
 Cardiovascular diseases (CVDs) are the amongst the most common causes of death globally, with approximately 17.9 million deaths annually. Nationally, CVDs affect more than 4 million Australians and cause 1 in 4 deaths in Australia [1][2]. Also referred to as heart diseases, CVDs are disorders of the blood vessels and the heart and may present heart failures. The most important behavioural factors for contributing to CVDs are imbalanced diet, physical inactivity and smoking. These factors may also result in high blood pressure, high blood glucose and obesity.
 
-**Problem statement**
+<h3>Problem statement</h3>
 
 With the prevalence of death due to heart failure, it is crucial that this can be predicted early on. This calls for a need to be able to predict death caused by heart failure. Artificial Intelligence (AI) can be used to solve this problem by examining past patient data and identifying the patterns in order to predict the chances for future patients. Using AI rather than manually finding the patterns ourselves means that we may find elements that may otherwise be too difficult to see by humans. Moreover, using AI would make the solution scalable as larger datasets are used. It will also be less prone to errors.
 
-**Solution Design &amp; Implementation**
+<h3>Solution Design &amp; Implementation</h3>
 
-**Data phase**
+<h4>Data phase</h4>
 
 In order to build the solution, Chicco and Jurman&#39;s dataset [3] has been chosen as it contains information on 299 patients with heart failure in 2015. The dataset contains the mortality label of each patient.
 
@@ -39,7 +39,7 @@ Although in typical scenarios it is important to handle null values, it is not i
 
 Next, the data is split into two parts with a ratio of 7:3. 70% of the dataset is used to train the model with the rest being used to evaluate the model.
 
-**Model Phase**
+<h4>Model Phase</h4>
 
 Two-Class Logistic Regression is selected as the machine learning algorithm to be used as this is a classification problem of predicting death or survival. All the features in the training portion of the dataset (not including DEATH\_EVENT as it is the label) are used to train the model. The Score Model and the Evaluate Model modules are then added to evaluate the performance of the model. See the picture below for the full training pipeline. The performance of the model is discussed in RESULT.md.
 
@@ -47,7 +47,7 @@ Two-Class Logistic Regression is selected as the machine learning algorithm to b
 
 Training Pipeline
 
-**Production Phase**
+<h4>Production Phase</h4>
 
 The training pipeline is deployed to produce the following inference pipeline (see below). Real-time endpoint has now been deployed. The inference pipeline is a copy of the training pipeline and is modified in the following ways: the raw training dataset module is replaced with the Enter Data Manually and Web Service Input modules. The former was used to enter our input data without the DEATH\_EVENT column. The Web Service Input module is used so that input data can be inserted from elsewhere. The Evaluate Model module is removed as it is not necessary for deployment (since it is simply assessing our model).
 
@@ -156,7 +156,7 @@ Code:
 
 For scalability, if the client has one or more files of input patient data, these files can instead be read in the python code (rather than entered inside the code).
 
-References
+<h3>References</h3>
 
 [1] Australian Bureau of Statistics 2018
 
