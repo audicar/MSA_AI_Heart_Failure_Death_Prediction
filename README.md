@@ -1,6 +1,6 @@
 # MSA AI Project: Heart Failure Death Prediction
 
-<h1>**Introduction**<h1>
+<h3>**Introduction**</h3>
 
 Cardiovascular diseases (CVDs) are the amongst the most common causes of death globally, with approximately 17.9 million deaths annually. Nationally, CVDs affect more than 4 million Australians and cause 1 in 4 deaths in Australia [1][2]. Also referred to as heart diseases, CVDs are disorders of the blood vessels and the heart and may present heart failures. The most important behavioural factors for contributing to CVDs are imbalanced diet, physical inactivity and smoking. These factors may also result in high blood pressure, high blood glucose and obesity.
 
